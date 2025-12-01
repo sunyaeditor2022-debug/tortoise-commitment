@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飼養烏龜承諾書</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft JhengHei', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: #fef6e9;
+            color: #5a4636;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 160, 80, 0.15);
+            overflow: hidden;
+            padding: 40px;
+            border: 2px solid #ffd8b8;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #ffd8b8;
+        }
+        
+        .header h1 {
+            color: #e67a00;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .header p {
+            color: #8c5c3a;
+            font-size: 1.1rem;
+        }
+        
+        .turtle-icon {
+            text-align: center;
+            font-size: 80px;
+            margin: 20px 0 30px 0;
+            color: #4caf7d;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .promises-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .promise-item {
+            background-color: #fffaf5;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #ffa64d;
+            box-shadow: 0 5px 15px rgba(255, 160, 80, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .promise-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(255, 160, 80, 0.15);
+        }
+        
+        .promise-question {
+            color: #e67a00;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .promise-question i {
+            color: #ffa64d;
+            margin-top: 3px;
+        }
+        
+        .promise-detail {
+            color: #6d4c32;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            font-style: normal;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #e67a00;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            background-color: #fff0e0;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .checkbox-label:hover {
+            background-color: #ffead1;
+            transform: scale(1.05);
+        }
+        
+        .checkbox-label input {
+            display: none;
+        }
+        
+        .checkmark {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #ffa64d;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .checkmark:after {
+            content: '✓';
+            color: transparent;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .checkbox-label input:checked + .checkmark {
+            background-color: #ffa64d;
+            border-color: #ffa64d;
+        }
+        
+        .checkbox-label input:checked + .checkmark:after {
+            color: white;
+        }
+        
+        .completion-message {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #fff8f0 0%, #fff0e0 100%);
+            border-radius: 15px;
+            margin-top: 30px;
+            display: none;
+            border: 2px dashed #ffa64d;
+        }
+        
+        .completion-message.show {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .completion-message h3 {
+            color: #e67a00;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .completion-message p {
+            color: #8c5c3a;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .celebration {
+            font-size: 60px;
+            margin: 20px 0;
+            color: #ffa64d;
+            animation: spin 3s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .progress-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .progress-text {
+            color: #e67a00;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #ffe4cc;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffa64d, #ff8000);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ffd8b8;
+            color: #8c5c3a;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>飼養烏龜承諾書</h1>
+            <p>請認真思考以下問題，確認您是否準備好照顧烏龜的一生</p>
+        </div>
+        
+        <div class="turtle-icon">
+            🐢
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-text" id="progressText">承諾進度：0/6</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+        
+        <div class="promises-container">
+            <!-- 問題 1 -->
+            <div class="promise-item">
+                <div class="promise-question">
+                    <i class="fas fa-heart"></i>
+                    <span>你願意照顧烏龜一生嗎？</span>
+                </div>
+                <div class="promise-detail">
+                    烏龜的壽命可達數十年，這是一個長達一生的承諾。
+                </div>
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="promise-checkbox" data-id="1">
+                        <span class="checkmark"></span>
+                        <span>我願意</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- 問題 2 -->
+            <div class="promise-item">
+                <div class="promise-question">
+                    <i class="fas fa-clock"></i>
+                    <span>你願意每天都花時間照料牠嗎？</span>
+                </div>
+                <div class="promise-detail">
+                    烏龜需要餵食、環境清潔和互動關心。
+                </div>
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="promise-checkbox" data-id="2">
+                        <span class="checkmark"></span>
+                        <span>我願意</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- 問題 3 -->
+            <div class="promise-item">
+                <div class="promise-question">
+                    <i class="fas fa-stethoscope"></i>
+                    <span>你願意每一年帶牠檢查身體嗎？</span>
+                </div>
+                <div class="promise-detail">
+                    定期健康檢查能及早發現問題，確保烏龜健康。
+                </div>
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="promise-checkbox" data-id="3">
+                        <span class="checkmark"></span>
+                        <span>我願意</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- 問題 4 -->
+            <div class="promise-item">
+                <div class="promise-question">
+                    <i class="fas fa-hand-holding-medical"></i>
+                    <span>牠生病，你願意請爸媽帶牠看醫生嗎？</span>
+                </div>
+                <div class="promise-detail">
+                    烏龜生病時需要專業的爬蟲類獸醫治療。
+                </div>
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="promise-checkbox" data-id="4">
+                        <span class="checkmark"></span>
+                        <span>我願意</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- 問題 5 -->
+            <div class="promise-item">
+                <div class="promise-question">
+                    <i class="fas fa-home"></i>
+                    <span>你願意為牠添置合適的飼養用品嗎？</span>
+                </div>
+                <div class="promise-detail">
+                    包括適當大小的飼養缸箱、加熱燈、鈣燈等設備。
+                </div>
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="promise-checkbox" data-id="5">
+                        <span class="checkmark"></span>
+                        <span>我願意</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- 問題 6 -->
+            <div class="promise-item">
+                <div class="promise-question">
+                    <i class="fas fa-book-open"></i>
+                    <span>你願意了解牠的習性和生活方式？</span>
+                </div>
+                <div class="promise-detail">
+                    不同種類的烏龜有不同的需求，需要花時間學習正確的飼養知識。
+                </div>
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="promise-checkbox" data-id="6">
+                        <span class="checkmark"></span>
+                        <span>我願意</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="completion-message" id="completionMessage">
+            <div class="celebration">🎉</div>
+            <h3>謝謝你願意作出承諾！</h3>
+            <p>你已經確認了所有飼養烏龜的重要責任。</p>
+            <p>請記住這些承諾，給烏龜一個安全、健康的家。</p>
+        </div>
+        
+        <div class="footer">
+            <p>飼養寵物是一份甜蜜的責任，感謝您的用心承諾。</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.promise-checkbox');
+            const completionMessage = document.getElementById('completionMessage');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            // 更新進度
+            function updateProgress() {
+                const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+                const totalCount = checkboxes.length;
+                const percentage = (checkedCount / totalCount) * 100;
+                
+                progressFill.style.width = `${percentage}%`;
+                progressText.textContent = `承諾進度：${checkedCount}/${totalCount}`;
+                
+                // 檢查是否全部完成
+                if (checkedCount === totalCount) {
+                    setTimeout(() => {
+                        completionMessage.classList.add('show');
+                        // 滾動到感謝訊息
+                        completionMessage.scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
+                } else {
+                    completionMessage.classList.remove('show');
+                }
+            }
+            
+            // 為每個勾選框添加事件
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateProgress();
+                    
+                    // 添加視覺回饋
+                    const promiseItem = this.closest('.promise-item');
+                    if (this.checked) {
+                        promiseItem.style.borderLeftColor = '#4caf7d';
+                        promiseItem.style.boxShadow = '0 5px 15px rgba(76, 175, 125, 0.2)';
+                    } else {
+                        promiseItem.style.borderLeftColor = '#ffa64d';
+                        promiseItem.style.boxShadow = '0 5px 15px rgba(255, 160, 80, 0.1)';
+                    }
+                });
+            });
+            
+            // 初始更新進度
+            updateProgress();
+            
+            // 添加簡單動畫
+            const promiseItems = document.querySelectorAll('.promise-item');
+            promiseItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.style.animation = 'fadeIn 0.5s ease forwards';
+            });
+        });
+    </script>
+</body>
+</html>
